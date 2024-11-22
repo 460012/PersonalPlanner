@@ -1,0 +1,8 @@
+{
+  "DalFactory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\DalFactory",
+  "InterfaceLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\InterfaceLayer",
+  "LogicFactory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\LogicFactory",
+  "Logic_Layer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\Logic_Layer",
+  "MySqlLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\MySqlLibrary",
+  "Test_Data_Layer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\7. Tools\\Github\\PersonalPlanner-Backend\\PersonalPlanner\\Test_Data_Layer"
+}

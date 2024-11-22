@@ -1,0 +1,42 @@
+{
+  "name": "next-personalplanner",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:ci": "cypress run"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
+    "@fullcalendar/core": "^6.1.13",
+    "@fullcalendar/daygrid": "^6.1.13",
+    "@fullcalendar/interaction": "^6.1.13",
+    "@fullcalendar/react": "^6.1.13",
+    "@fullcalendar/resource": "^6.1.11",
+    "@fullcalendar/resource-timeline": "^6.1.11",
+    "@fullcalendar/timegrid": "^6.1.13",
+    "@heroicons/react": "^2.1.3",
+    "clsx": "^2.1.0",
+    "next": "14.1.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-modal": "^3.16.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-modal": "^3.16.3",
+    "autoprefixer": "^10.0.1",
+    "cypress": "^13.11.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.3",
+    "postcss": "^8",
+    "sonar-scanner": "^3.1.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

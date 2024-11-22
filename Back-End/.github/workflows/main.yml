@@ -1,0 +1,62 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - Continuous-Development
+  pull_request:
+    branches:
+      - Continuous-Development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+      # Install Docker
+    - name: Install Docker
+      run: |
+        sudo apt-get update
+        sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        sudo apt-get update
+        sudo apt-get install docker-ce
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+
+    - name: Build Docker image
+      #run: docker buildx build -t personalplanner -f PersonalPlanner/PersonalPlanner/Dockerfile .
+      run: docker buildx build -t personalplanner .
+
+
+    - name: Push Docker image
+      run: |
+        docker tag personalplanner ${{ secrets.DOCKER_HUB_USERNAME }}/personalplanner:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/personalplanner:latest
+    
+    
+    # Deploy Docker container
+    - name: Deploy the Docker container
+      run: |
+        docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/personalplanner:latest
+        
+        if docker container ls -a --format '{{.Names}}' | grep -q '^personalplanner-container$'; then
+          docker stop personalplanner-container
+          docker rm personalplanner-container
+        fi
+
+        docker run -d --name personalplanner-container -p 8089:80 ${{ secrets.DOCKER_HUB_USERNAME }}/personalplanner:latest
+
+        # Check the status of the container
+        docker ps -a --filter "name=personalplanner-container"

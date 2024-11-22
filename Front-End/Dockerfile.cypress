@@ -1,0 +1,23 @@
+# Use a Node.js image with a more recent version
+FROM cypress/base:14.17.0
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json first to leverage Docker cache
+COPY package.json package-lock.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files
+COPY . .
+
+# Copy the Cypress configuration file
+COPY ./cypress.config.ts /app/cypress.config.ts
+
+# Ensure TypeScript is installed (if it's not already in your package.json)
+#RUN npm install typescript
+
+# Run Cypress tests
+CMD ["npx", "cypress", "run"]

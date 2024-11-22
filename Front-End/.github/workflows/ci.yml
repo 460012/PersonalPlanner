@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set environment variable for baseUrl
+        run: echo "CYPRESS_BASE_URL=http://localhost:3000" >> $GITHUB_ENV
+
+      - name: Run Cypress tests
+        run: |
+          npx cypress run --headed --browser firefox --config baseUrl=$CYPRESS_BASE_URL

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Test_Data_Layer/1.0.0": {
+        "dependencies": {
+          "InterfaceLayer": "1.0.0"
+        },
+        "runtime": {
+          "Test_Data_Layer.dll": {}
+        }
+      },
+      "InterfaceLayer/1.0.0": {
+        "runtime": {
+          "InterfaceLayer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Test_Data_Layer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InterfaceLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
